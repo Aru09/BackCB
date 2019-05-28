@@ -19,19 +19,12 @@ class ReviewList(generics.ListCreateAPIView):
         serializer.save(created_by=self.request.user)
 
 
-class CompanyList(generics.ListCreateAPIView):
-    def get(self, request):
-        companies = Company.objects.all()
-        serializer = CompanySerializer(companies, many=True)
-        return Response(serializer.data)
-    
+class ReviewerList(generics.ListCreateAPIView):
+    permission_classes = IsAuthenticated
+    serializer_class = Reviewer_metadataSerializers
 
-    def post(self, request):
-        serializer = CompanySerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
-    
+    def get_queryset(self):
+        return Reviewer_metadata.objects.filter
+
+
 
