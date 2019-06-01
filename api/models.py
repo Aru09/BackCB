@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.contrib.auth.models import User
 from django.utils import timezone
 from django.contrib.auth.models import User
 
@@ -9,8 +8,9 @@ class ReviewListManager(models.Manager):
     def for_user(self, user):
         return self.filter(created_by=user)
 
+
 class Company(models.Model):
-    name=models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

@@ -17,7 +17,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
         return Review.objects.for_user(self.request.user)
 
 class CompanyViewSet(viewsets.ModelViewSet):
-    queryset = models.Review.objects.all()
+    queryset = models.Company.objects.all()
     serializer_class = serializers.CompanySerializer
 
 
