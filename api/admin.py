@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Review, Reviewer_metadata , Company
+from .models import Review, ReviewerMetadata , Company
 
-admin.site.register(Reviewer_metadata)
+admin.site.register(ReviewerMetadata)
 admin.site.register(Company)
 admin.site.register(Review)
 

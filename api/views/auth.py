@@ -16,6 +16,8 @@ class UserList(generics.ListAPIView):
 
 @api_view(['POST'])
 def login(request):
+    print("djkskjnsjknsjdnajkdnjkasnd")
+    print(request.data)
     serializer = AuthTokenSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     user = serializer.validated_data['user']
